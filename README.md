@@ -1,39 +1,38 @@
 
-# SamSkyBridge Plugin
+# SamSkyBridge 플러그인
 
-## Overview
-SamSkyBridge is a custom Spigot plugin designed to enhance your skyblock experience. It integrates with **BentoBox** and **BSkyBlock**, offering features such as **leveling systems**, **island upgrades**, **team member expansion**, **XP tracking**, and **ranking systems**.
+## 개요
+SamSkyBridge는 **BentoBox** 및 **BSkyBlock**과 통합되어 **레벨 시스템**, **섬 업그레이드**, **팀원 확장**, **XP 추적**, **랭킹 시스템** 등을 제공하는 커스텀 Spigot 플러그인입니다.
 
-## Features
-- **Leveling System**: Level up your island by placing blocks (XP for different blocks can be customized).
-- **Island Upgrades**: Increase your island size and max team members through a user-friendly GUI.
-- **Ranking System**: View island rankings based on experience points, level, and island size.
-- **Barrier System**: Display a white particle barrier when upgrading your island size.
-- **Vault Integration**: Supports Vault for economy-based purchases and upgrades.
-- **Pixelmon Support**: Includes specific support for Pixelmon-related blocks, adding XP based on Pixelmon block usage.
+## 주요 기능
+- **레벨 시스템**: 블록을 설치하여 섬을 레벨업 (블록별 XP는 커스터마이징 가능).
+- **섬 업그레이드**: 사용자 친화적인 GUI를 통해 섬 크기와 최대 팀원 수를 증가시킬 수 있습니다.
+- **랭킹 시스템**: 경험치, 레벨, 섬 크기 등을 기준으로 섬의 랭킹을 확인할 수 있습니다.
+- **방벽 시스템**: 섬 크기를 업그레이드할 때 하얀 파티클로 방벽이 표시됩니다.
+- **Vault 통합**: Vault를 통해 경제 기반 업그레이드 및 비용 처리 기능을 지원합니다.
+- **픽셀몬 지원**: 픽셀몬 관련 블록을 다루는 기능을 추가하여 XP를 부여합니다.
 
-## Installation
-1. Download the latest `.jar` from the GitHub Actions artifacts or compile using Maven.
-2. Place the `.jar` file in your server's `plugins/` directory.
-3. Start/restart your server.
+## 설치 방법
+1. 최신 `.jar` 파일을 GitHub Actions 아티팩트에서 다운로드하거나 Maven을 사용하여 직접 빌드할 수 있습니다.
+2. `.jar` 파일을 서버의 `plugins/` 디렉토리에 넣습니다.
+3. 서버를 시작/재시작합니다.
 
-## Configuration
-The configuration files can be found in `plugins/SamSkyBridge/`:
-- `config.yml`: General settings, including XP rates, upgrade costs, and particle configurations.
-- `blocks.yml`: Customize XP values for different blocks placed on the island.
-- `messages_ko.yml`: Localization (Korean). Customize messages shown to players.
+## 설정
+설정 파일은 `plugins/SamSkyBridge/`에서 확인할 수 있습니다:
+- `config.yml`: XP 비율, 업그레이드 비용, 파티클 설정 등.
+- `blocks.yml`: 다양한 블록별 XP 설정.
+- `messages_ko.yml`: 한국어 로컬라이징. 사용자에게 표시될 메시지들을 커스터마이즈할 수 있습니다.
 
-## Commands
-- `/섬 레벨`: View your island's level and experience.
-- `/섬 업그레이드`: Open the GUI to upgrade your island size or team capacity.
-- `/섬 랭킹`: Check the rankings of islands based on experience and level.
+## 명령어
+- `/섬 레벨`: 섬의 레벨 및 경험치 확인
+- `/섬 업그레이드`: 섬 업그레이드 GUI 열기
+- `/섬 랭킹`: 섬 랭킹 확인
 
 ## GitHub Actions
-This project uses **GitHub Actions** for automated builds:
-1. Push your changes to GitHub.
-2. The build will trigger automatically and a `.jar` file will be created and uploaded as an artifact.
-3. You can download the latest `.jar` from the **Actions** tab on GitHub.
+이 프로젝트는 **GitHub Actions**를 사용하여 자동으로 빌드합니다:
+1. 변경 사항을 GitHub에 푸시하면 빌드가 자동으로 실행됩니다.
+2. 빌드 완료 후 **Actions 탭**에서 `.jar` 파일을 아티팩트로 다운로드할 수 있습니다.
+3. `.jar` 파일을 서버에 업로드하여 실행하면 됩니다.
 
-## License
-This project is licensed under the MIT License.
-
+## 라이센스
+이 프로젝트는 MIT 라이센스 하에 제공됩니다.
