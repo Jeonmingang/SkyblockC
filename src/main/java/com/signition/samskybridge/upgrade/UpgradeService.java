@@ -5,6 +5,7 @@ import com.signition.samskybridge.data.DataStore;
 import com.signition.samskybridge.data.IslandData;
 import com.signition.samskybridge.level.LevelService;
 import com.signition.samskybridge.util.VaultHook;
+import com.signition.samskybridge.integration.BentoSync;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -19,12 +20,14 @@ public class UpgradeService {
     private final DataStore store;
     private final LevelService level;
     private final VaultHook vault;
+    private final BentoSync bento;
 
     public UpgradeService(Main plugin, DataStore store, LevelService level, VaultHook vault){
         this.plugin = plugin;
         this.store = store;
         this.level = level;
         this.vault = vault;
+        this.bento = plugin.getBento();
     }
 
     public void openGui(Player p){
@@ -76,6 +79,7 @@ public class UpgradeService {
             is.setSize(next);
             p.sendMessage(plugin.getConfig().getString("messages.upgrade.size-up-success","섬 크기 업그레이드").replace("<radius>", String.valueOf(next)));
             Barrier.showWhiteBarrier(p, next);
+            try { if (bento != null && bento.isEnabled()) bento.applyRangeInstant(p, next); } catch (Throwable t){ plugin.getLogger().warning("BentoSync range failed: "+t.getMessage()); }
         } else if (slot == 15){
             int before = is.getTeamMax();
             int next = before + 1;
@@ -96,6 +100,7 @@ public class UpgradeService {
             }
             is.setTeamMax(next);
             p.sendMessage(plugin.getConfig().getString("messages.upgrade.team-up-success","팀원 업그레이드").replace("<count>", String.valueOf(next)));
+            try { if (bento != null && bento.isEnabled()) bento.applyTeamMax(p, next); } catch (Throwable t){ plugin.getLogger().warning("BentoSync team failed: "+t.getMessage()); }
         }
     }
 

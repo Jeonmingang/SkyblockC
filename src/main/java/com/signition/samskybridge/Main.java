@@ -6,6 +6,7 @@ import com.signition.samskybridge.level.LevelService;
 import com.signition.samskybridge.listener.GuiListener;
 import com.signition.samskybridge.listener.BlockXPListener;
 import com.signition.samskybridge.rank.RankingService;
+import com.signition.samskybridge.integration.BentoSync;
 import com.signition.samskybridge.upgrade.UpgradeService;
 import com.signition.samskybridge.util.Text;
 import com.signition.samskybridge.util.VaultHook;
@@ -19,6 +20,7 @@ public class Main extends JavaPlugin {
     private UpgradeService upgradeService;
     private RankingService rankingService;
     private VaultHook vault;
+    private BentoSync bento;
 
     @Override
     public void onEnable() {
@@ -28,6 +30,7 @@ public class Main extends JavaPlugin {
         saveResource("messages_ko.yml", false);
 
         this.vault = new VaultHook(this);
+        this.bento = new BentoSync(this);
         this.dataStore = new DataStore(this);
         this.levelService = new LevelService(this, dataStore);
         this.upgradeService = new UpgradeService(this, dataStore, levelService, vault);
@@ -37,6 +40,7 @@ public class Main extends JavaPlugin {
 
         Bukkit.getPluginManager().registerEvents(new BlockXPListener(this, levelService), this);
         Bukkit.getPluginManager().registerEvents(new GuiListener(this, upgradeService), this);
+        Bukkit.getPluginManager().registerEvents(new JoinListener(this, dataStore, bento), this);
 
         long ticks = getConfig().getLong("rank-refresh-interval-ticks", 1200L);
         Bukkit.getScheduler().runTaskTimer(this, () -> rankingService.refreshRanking(), 60L, ticks);
@@ -54,4 +58,5 @@ public class Main extends JavaPlugin {
 
     public static Main get(){ return inst; }
     public VaultHook getVault(){ return vault; }
+    public BentoSync getBento(){ return bento; }
 }

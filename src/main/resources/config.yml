@@ -38,3 +38,9 @@ gui:
 
 storage:
   data-file: "data/islands.yml"
+
+
+integration:
+  bentobox:
+    enabled: true
+    gamemode-id: "bskyblock"   # 'acidisland', 'boxed' 등 서버 환경에 맞게
