@@ -3,7 +3,7 @@ package com.signition.samskybridge;
 import com.signition.samskybridge.cmd.IslandCommand;
 import com.signition.samskybridge.data.DataStore;
 import com.signition.samskybridge.level.LevelService;
-import com.signition.samskybridge.listener.GuiListener;
+import com.signition.samskybridge.listener.JoinListener;
 import com.signition.samskybridge.listener.BlockXPListener;
 import com.signition.samskybridge.rank.RankingService;
 import com.signition.samskybridge.integration.BentoSync;
